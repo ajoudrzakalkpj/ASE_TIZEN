@@ -4,11 +4,9 @@
 <head>
 	<meta name="viewport" content="width=device-width,user-scalable=no"/>
 
-
 	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
 	<script type="text/javascript" src="./js/jquery-1.5.2.min.js"></script>
     <script type="text/javascript" src="./js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="./js/addScript.js"></script>
     <script type="text/javascript" src="./js/jquery.popupWindow.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
 
@@ -45,9 +43,6 @@
 			<a id="btRegistration" href="#two" data-role="button">Registration</a><br>
     	</div><!-- /content -->
 	</div><!-- /page one -->
-
-
-
 
     <!-- Start of second page: #two -->
     <div data-role="page" id="two">
@@ -88,11 +83,10 @@
             <p>
                Server Admin: <input type="text" id="tbRegServerAdmin" placeholder="Simple text box" />
             </p>
-
-            
-            <p>
-            <a data-direction="reverse" data-role="button" onclick = "registerComplete()">Submit</a>
-            <a data-direction="reverse" data-role="button" onclick = "previousPage()">Cancel</a></p>
+	        <p>
+      	        <a data-direction="reverse" data-role="button" onclick = "registerComplete()">Submit</a>
+        	    <a data-direction="reverse" data-role="button" onclick = "previousPage()">Cancel</a>
+        	</p>
         </div><!-- /content -->
     </div><!-- /page two -->
 

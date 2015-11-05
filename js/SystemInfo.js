@@ -1,25 +1,5 @@
-( function () {
-    window.addEventListener( 'tizenhwkey', function( ev ) {
-        if( ev.keyName === "back" ) {
-            var activePopup = document.querySelector( '.ui-popup-active' ),
-                page = document.getElementsByClassName( 'ui-page-active' )[0],
-                pageid = page ? page.id : "";
 
-            if( pageid === "one" && !activePopup ) {
-                try {
-                    tizen.application.getCurrentApplication().exit();
-                } catch (ignore) {
-                }
-            } else {
-                window.history.back();
-            }
-        }
-    } );
-} () );
-
-
-
-/* 11.5 봉재 - 처음 페이지를 열었을때, 사용자가 시스템관리자인지 확인한후 open
+/* 11.5 - 봉재 - 처음 페이지를 열었을때, 사용자가 시스템관리자인지 확인한후 open
  * 페이지가 오픈된 이후 현재 사용자 정보를 세션정보로부터 가져오기 
  * 새롭게 등록한 사용자를 system admin 이름과 confirmed 변수로 가져오는 로직을 포함
  */ 
@@ -73,7 +53,7 @@ function systeminfo_list_load()
     });
 }
 
-// 11.5 새로운 사용자가 등록한 이후 시스템 관리자에의해 확인된 사용자를 승인하여, 서버로 전송하는 로직  
+// 11.5 - 봉재 - 새로운 사용자가 등록한 이후 시스템 관리자에의해 확인된 사용자를 승인하여, 서버로 전송하는 로직  
 function submitConfirmation(){
 
 	var chk = document.getElementsByName("checkbox-1"); 

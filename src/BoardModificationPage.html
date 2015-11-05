@@ -13,18 +13,18 @@
 	<script src="./lib/jquery.js"></script>
     <link rel="stylesheet"  href="../lib/tau/mobile/theme/default/tau.css">
 
-	<script src="../js/ModifyUserInfo.js"></script>
+	<script src="../js/BoardModificationPage.js"></script>
 
 	<title>TIZEN SMART AL</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 </head>
 
-<body onload="get_usermodification_info()">
+<body onload="get_PostInfoBySeq_info()">
 
     <!-- Start of second page: #two -->
     <div data-role="page" id="two">
         <div data-role="header" data-position="fixed">
-            <h1>User Registration</h1>
+            <h1>Update Post Information</h1>
         </div><!-- /header -->
 
         <div data-role="content">
@@ -43,42 +43,35 @@
 				</tr>
 			</table><br>
             <p>
-               PW: <input type="password" id="tbRegPassword1" placeholder="Simple text box" />
+               Title: <input type="text" id="tbBoardSubject" placeholder="Simple text box" />
             </p>
             <p>
-               Confirm PW: <input type="password" id="tbRegPassword2" placeholder="Simple text box" />
+               Contents:<textarea id="tbBoardContents" class="textarea-margin" placeholder="Please fill this box"></textarea>
             </p>
             <p>
-               Cell phone: <input type="text" id="tbRegCellPhone" placeholder="Simple text box" />
+            	Previous Finished Time setting : <input type="text" id="tbfinishedTimeBefore" placeholder="Simple text box" />
             </p>
+			<div data-role="fieldcontain">
+				<label for="datetime-l">Finished Time:</label>
+				<input type="datetime-local" name="datetime-l" id="finishedTime" value="" />
+			</div>
             <p>
-               Server Admin: <input type="text" id="tbRegServerAdmin" placeholder="Simple text box" />
+               	<fieldset data-role="controlgroup" class="choosepet">
+					<legend>Choose a Open Policy:</legend>
+						<input type="radio" name="OpenPolicy-choice" id="OpenPolicy-1" value="PU" checked="checked" />
+							<label for="privilege-1">Public</label><br>
+						<input type="radio" name="OpenPolicy-choice" id="OpenPolicy-2" value="PR"  />
+							<label for="privilege-2">Private</label><br>
+				</fieldset>
             </p>
 
             
             <p>
-            <a data-direction="reverse" data-role="button" onclick = "updateComplete()">Submit</a>
+            <a id = "btUpdatePost" data-direction="reverse" data-role="button" onclick = "updatePost()">Update</a>
             <a data-direction="reverse" data-role="button" onclick = "previousPage()">Cancel</a></p>
         </div><!-- /content -->
     </div><!-- /page two -->
 
-
-
-
-    <!-- Start of second page: #three -->
-    <div data-role="page" id="three">
-        <div data-role="header" data-position="fixed">
-            <h1>User Info Update Complete</h1>
-        </div><!-- /header -->
-
-        <div data-role="content">
-            
-            <h2>Update is Complete!!!</h2>
-            
-          
-            <p><a data-direction="reverse" data-role="button" onclick = "previousPage()">Go back to Main Page</a></p>
-        </div><!-- /content -->
-    </div><!-- /page three -->
 
 </body>
 </html>

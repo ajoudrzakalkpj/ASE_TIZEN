@@ -7,7 +7,6 @@
 	<script type="text/javascript" src="../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
 	<script type="text/javascript" src="../js/jquery-1.5.2.min.js"></script>
     <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../js/addScript.js"></script>
     <script type="text/javascript" src="../js/jquery.popupWindow.js"></script>
     <script type="text/javascript" src="../js/common.js"></script>
 	<script src="../lib/jquery.js"></script>
@@ -72,7 +71,7 @@
 			</table>
 			
 			<p style="color: blue">New Post</p>
-			<table summary="Check New Post" id="NewPost" border = "1" align="center">
+			<table summary="Check New Post" id="UnfinishedPost" border = "1" align="center">
 				<tbody>
 					<tr>
 						<td> No.</td>
@@ -84,8 +83,8 @@
 			
 			<table summary ="Align status butten" align = "center">
 				<tr>
-					<td><a id="btSeeAll" href="#three" data-role="button">See all</a></td>
-					<td><a id="btRegisterPost" href="#four" data-role="button">Register Post</a></td>		
+					<td><a id="btSeeAll" data-role="button" onclick = "moveListAllPostPage()">See all</a></td>
+					<td><a id="btRegisterPost" data-role="button" onclick = "moveRegisterNewPostPage()">Register Post</a></td>		
 				</tr>
 			</table>
 

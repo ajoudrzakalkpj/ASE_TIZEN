@@ -1,27 +1,10 @@
-( function () {
-    window.addEventListener( 'tizenhwkey', function( ev ) {
-        if( ev.keyName === "back" ) {
-            var activePopup = document.querySelector( '.ui-popup-active' ),
-                page = document.getElementsByClassName( 'ui-page-active' )[0],
-                pageid = page ? page.id : "";
-
-            if( pageid === "one" && !activePopup ) {
-                try {
-                    tizen.application.getCurrentApplication().exit();
-                } catch (ignore) {
-                }
-            } else {
-                window.history.back();
-            }
-        }
-    } );
-} () );
-   
+//11.6. - 봉재 - 이 페이지에서 취소 버튼을 누를경우 이동하는 페이지임
 function previousPage()
 {
 	location.href="./welcome.html"
 }
 
+//11.6. - 봉재 - 처음 이 페이지를 열게되면 가져와서 표시하는 정보임
 function get_usermodification_info(){
 	member_load();
 	
@@ -57,6 +40,7 @@ function get_usermodification_info(){
     });
 }
 
+//11.6. - 봉재 - 가져온 데이터를 수정 완료후 제출을 누를 때 발생함
 function updateComplete(){
 
 	var reg_pwd = /^.*(?=.{8,16})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
@@ -84,18 +68,11 @@ function updateComplete(){
 		return false;
 	}
 	
-	
-	
-	// 전송 메시지 생성:registration.do 서블릿을 확인하여 userController로 ajax로 작성된 JSON 메시지 전송
-	// 10.08. POST로 타입 변경
-	// 10.09 POST 로 타입 변경후 var 선언 부분 조정
-	
 	var param = "userID="+sessionStorage.getItem("ase.id")
 	+"&userPassword="+$("#tbRegPassword1").attr("value")
 	+"&userPhoneNumber="+$("#tbRegCellPhone").attr("value")
 	+"&userServerAdmin="+$("#tbRegServerAdmin").attr("value");
-	
-	
+
 	$.ajax({
         type: "POST",
         url: "http://" + domainText + "/ase_server/user/updateUserInfo.do",
@@ -123,8 +100,6 @@ function updateComplete(){
         }
 		
     });
-    return false;
-	
-	
-	
+   
+	return false;
 }
