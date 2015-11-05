@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+
+	<script type="text/javascript" src="../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+	<script type="text/javascript" src="../js/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/addScript.js"></script>
+    <script type="text/javascript" src="../js/jquery.popupWindow.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+	<script src="../lib/jquery.js"></script>
+
+	<link rel="stylesheet"  href="../lib/tau/mobile/theme/default/tau.css">
+
+	<script src="../js/welcome.js"></script>
+
+	<title>TIZEN SMART AL</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+</head>
+
+
+
+<body onload = "welcome_list_load()">
+    <!-- Start of first page: #one -->
+    <div data-role="page" id="one">
+        <div data-role="header" data-position="fixed">
+            <h1>Welcome to SMART AL</h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+		
+			<table summary="For looks good" align="right">
+				<tr>
+					<td>Current ID:</td>
+					<td id="tbIdentifyUser"></td>
+				</tr>
+				<tr>
+					<td> Server Admin:</td>
+					<td id="tbIdentifyServerAdmin"></td>
+				</tr>
+				<tr>
+					<td> Connection:</td>
+					<td id="tbIdentifySSID"></td>
+				</tr>
+			</table><br>
+			<table summary ="Align the butten" align = "center">
+				<tr>
+					<td><a id="btsystemnotifier" data-role="button" data-icon="star" data-style="circle" onclick="moveSystemInfoPage()"></a></td>
+					<td><a id="btModifyUserInfo" href="#four" data-role="button" onclick="moveModifyUserInfoPage()">Modify User Info</a></td>		
+					<td><a id="btArduinoManager" href="#four" data-role="button">Arduino Manager</a></td>
+				</tr>
+			</table>
+           
+			<p style="color: blue">Home Status</p>
+			<table summary="Check Home Status" id="homestatus" border = "1" align="center">
+				<tbody>
+					<tr>
+						<td> Arduino ID</td>
+						<td> Sensor </td>
+						<td> Value </td>
+					</tr>
+				</tbody>
+			</table><br>
+			
+			<table summary ="Align status butten" align = "center">
+				<tr>
+					<td><a id="btRemoteControl" href="#three" data-role="button">Remote Control</a></td>
+					<td><a id="btDisplayConfig" href="#four" data-role="button">Display Config</a></td>		
+				</tr>
+			</table>
+			
+			<p style="color: blue">New Post</p>
+			<table summary="Check New Post" id="NewPost" border = "1" align="center">
+				<tbody>
+					<tr>
+						<td> No.</td>
+						<td> Writer </td>
+						<td> Title </td>
+					</tr>
+				</tbody>
+			</table><br>
+			
+			<table summary ="Align status butten" align = "center">
+				<tr>
+					<td><a id="btSeeAll" href="#three" data-role="button">See all</a></td>
+					<td><a id="btRegisterPost" href="#four" data-role="button">Register Post</a></td>		
+				</tr>
+			</table>
+
+    	</div><!-- /content -->
+	</div><!-- /page one -->
+
+
+</body>
+</html>
