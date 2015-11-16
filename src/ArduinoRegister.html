@@ -13,7 +13,7 @@
 	<script src="../lib/jquery.js"></script>
 	<link rel="stylesheet"  href="../lib/tau/mobile/theme/default/tau.css">
 
-	<script src="../js/welcome.js"></script>
+	<script src="../js/ArduinoRegister.js"></script>
 
 	<title>TIZEN SMART AL</title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
@@ -95,12 +95,29 @@
 			
 			<br></br>
 			<div summary ="Align Arduino Node Register Submit" align = "center">
-				<a id="btArduinoNodeRegister_Submit" data-role="button" onclick="finishRegisterArduinoNode()">Submit</a>
+				<!-- <a id="btArduinoNodeRegister_Submit" data-role="button" onclick="finishRegisterArduinoNode()">Submit</a>  -->
+				<a data-direction="reverse" data-role="button" onclick = "moveRegisterArduinoNodeInfoPage()">Submit</a>
 				<a data-direction="reverse" data-role="button" onclick = "previousPage()">Cancel</a>
 			</div>
 			
-		</div>
-	</div>
+		</div> <!-- /content -->
+	</div> <!-- /page two -->
+	
+    <!-- Start of second page: #three -->
+    <div data-role="page" id="three">
+        <div data-role="header" data-position="fixed">
+            <h1>Arduino Register Complete</h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+            
+            <h2>Registering is Complete!!!</h2>
+            
+          
+            <p><a data-direction="reverse" data-role="button" onclick = "previousPage()">Go back to Main Page</a></p>
+        </div><!-- /content -->
+    </div><!-- /page three -->
+    
 </body>
 </html>
 			
