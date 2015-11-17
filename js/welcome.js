@@ -87,3 +87,18 @@ function moveRegisterNewPostPage(){
 function moveListAllPostPage(){
 	location.href="./ListAllPost.html";
 }
+
+//11.16. - 대한 - 아두이노 관리로 이동하는 페이지로 전환
+function moveArduinoManagerPage() {
+	location.href="./ArduinoManagerPage.html";
+}
+
+//11.16. - 대한 - RemoteControl을 확인하는 곳으로 이동하는 페이지로 전환
+function moveRemoteControlInfoPage() {
+	location.href="./RemoteControlPage.html";
+}
+
+//11.16. - 대한 - Display Config를 확인하는 곳으로 이동하는 페이지로 전환
+function moveDisplayConfigInfoPage() {
+	location.href="./DisplayConfigurationPage.html";
+}

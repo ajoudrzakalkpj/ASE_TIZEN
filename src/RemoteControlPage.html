@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+
+	<script type="text/javascript" src="../lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
+	<script type="text/javascript" src="../js/jquery-1.5.2.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../js/jquery.popupWindow.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+	<script src="../lib/jquery.js"></script>
+
+	<link rel="stylesheet"  href="../lib/tau/mobile/theme/default/tau.css">
+
+	<script src="../js/SystemInfo.js"></script>
+	<script src="../js/RemoteControlPage.js"></script>
+
+	<title>TIZEN SMART AL</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+</head>
+
+
+
+<body onload = "available_remote_device_load()">
+    <!-- Start of first page: #two -->
+    <div data-role="page" id="two">
+        <div data-role="header" data-position="fixed">
+            <h1>Remote Control</h1>
+        </div><!-- /header -->
+
+        <div data-role="content">
+		
+			<table summary="For looks good" align="right">
+				<tr>
+					<td>Current ID:</td>
+					<td id="tbIdentifyUser"></td>
+				</tr>
+				<tr>
+					<td> Server Admin:</td>
+					<td id="tbIdentifyServerAdmin"></td>
+				</tr>
+				<tr>
+					<td> Connection:</td>
+					<td id="tbIdentifySSID"></td>
+				</tr>
+			</table><br>
+			
+			<p>
+				Arduino Status
+			</p>
+			
+			<table summary ="List Connected Devices" align = "center" border = "1px; solid;">
+				<tr>
+					<td>No.</td>
+					<td>ID</td>
+					<td>S/N</td>
+					<td>Status></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Room1</td>
+					<td>1111111</td>
+					<td align = "center">✔</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Room2</td>
+					<td>2222222</td>
+					<td align = "center">✔</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Room3</td>
+					<td>3333333</td>
+					<td align = "center">✔</td>
+				</tr>
+			</table>
+			<br>
+			<div align = "center">
+				<a data-direction="reverse" data-role="button" onclick = "previousPage()">Cancel</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
