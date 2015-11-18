@@ -89,8 +89,8 @@ function moveListAllPostPage(){
 }
 
 //11.16. - 대한 - 아두이노 관리로 이동하는 페이지로 전환
-function moveArduinoManagerPage() {
-	location.href="./ArduinoManagerPage.html";
+function moveRaspberryManagerPage() {
+	location.href="./RaspberryManagerPage.html";
 }
 
 //11.16. - 대한 - RemoteControl을 확인하는 곳으로 이동하는 페이지로 전환
