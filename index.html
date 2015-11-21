@@ -6,9 +6,10 @@
 
 	<script type="text/javascript" src="./lib/tau/mobile/js/tau.js" data-build-remove="false"></script>
 	<script type="text/javascript" src="./js/jquery-1.5.2.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="./js/jquery_cookie.js"></script>
     <script type="text/javascript" src="./js/jquery.popupWindow.js"></script>
     <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="./js/security.js"></script>
 
 	<script src="./lib/jquery.js"></script>
     <link rel="stylesheet"  href="./lib/tau/mobile/theme/default/tau.css">
@@ -34,10 +35,10 @@
             <p>
                Password: <input type="password" id="tbLoginPassword" placeholder="Simple text box" />
             </p>
+			<br></br>
 			<input type="checkbox" name="RememberMe" id="cbRememberMe"/>
-				<label for="cbRememberMe">Remember me</label><br>
-			<input type="checkbox" name="AutomaticLogin" id="cbAutomaticLogin"/>
-				<label for="cbAutomaticLogin">Automatic Login</label><br><br>
+				<label for="cbRememberMe">Remember ID, PW</label><br>
+			<br></br>
 
             <a id="btLogin"  data-role="button" onclick = "check()">Login</a>
 			<a id="btRegistration" href="#two" data-role="button">Registration</a><br>

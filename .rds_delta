@@ -1,10 +1,9 @@
 #delete
 #add
 #modify
-res/wgt/.git/FETCH_HEAD
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
-res/wgt/js/RaspberryManagerPage.js
-res/wgt/js/RaspberryManager_FindRaspberryPage.js
-res/wgt/js/RaspberryRegister.js
-res/wgt/src/RaspberryRegister.html
+res/wgt/js/DisplayConfigurationPage.js
+res/wgt/js/RaspberryInfoCheck.js
+res/wgt/js/welcome.js
+res/wgt/src/RaspberryInfoCheck.html

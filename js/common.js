@@ -19,16 +19,29 @@
 
 //11.6. - 봉재 - 여기는 wifissid를 가져오기 위한 전역변수 및 콜백함수 정의
 var wifissid = '';
+var deviceModel = '';
 
 function onSuccessCallback(wifi) {
 
 	wifissid = wifi.ssid;
-    alert("You are connectted to "+wifissid);
+	alert("You are connectted to "+wifissid);
 }
 
 function onErrorCallback(error) {
     alert("Not supported: " + error.message);
 }
+
+function SuccessCallback(device) {
+	deviceModel = device.manufacturer;
+	
+    
+}
+
+ function ErrorCallback(error) {
+    alert("Not supported: " + error.message);
+}
+
+
 
 //11.6. - 봉재 - 여기는 서버 IP주소를 가져오게 하기 위한 함수임
 function getDomain(){
@@ -89,3 +102,19 @@ function getUrlSeq(){
 	var seq = tmp1Arr[1];
 	return seq;
 }
+
+
+// 실험용이긴 하지만, 나중에 ID, PW 저장 및 기타 정보 저장에 
+
+function getEncryption(data){
+	var cipherText;
+	cipherText = Encrypt(data, deviceModel);
+	return cipherText;
+}
+
+function getDecryption(data){
+	var plainText;
+	plainText = Decrypt(data, deviceModel);
+	return plainText;
+}
+

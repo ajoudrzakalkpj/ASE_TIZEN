@@ -3,8 +3,110 @@
 function welcome_list_load()
 {
 	member_load();
+	SA_info_load();
 	Unfinished_post_list_load();
 }
+
+function SA_info_load(){
+	
+	var configinfo;
+	var param;
+	if(localStorage.getItem("ase.config")!=null){
+		configinfo=getDecryption(localStorage.getItem("ase.config"));
+	
+		param = "saNumSeq=" + configinfo + "&sessionServerAdmin=" +sessionStorage.getItem("ase.serveradmin")+"&raspberryStatus=1"; 
+		$.ajax({
+			type: "GET",
+			url: "http://" + domainText + "/ase_server/raspberrycontrol/load_SAvalueinfo.do?",
+			callback:"callbak",
+			data: param,
+			dataType: "jsonp",
+			timeout : 5000,
+			success:
+				function(data){
+				$.each(data, function(k,v){
+					if(k=="success"){
+						var html = '';
+						html += '<tr>';
+						html += '<td>ID</td>';
+						html += '<td>Type</td>';
+						html += '<td>Value</td>';
+						html += '</tr>';
+						$.each(v, function(l,m){
+							html += '<tr>'
+							html +=	'<td>'+m["raspberryID"]+'</td>';
+							html +=	'<td>'+m["saType"]+'</td>';
+							html += '<td>'+m["saUpdateValue"]+'</td>';
+							html += '</tr>';
+						});
+						$("#homeStatus").append(html);
+					}
+
+					if(k=="fail"){
+						html = '<tr>';
+						html += '<td> There is no Sensor Information in your SMART AL</td>';
+						html += '</tr>';
+						$("#homeStatus").append(html);
+					}
+				});
+			},
+        
+        //404에러와 같이 서버응담이 없는경우 실패 alert만 생성하고 현재 페이지에 위치함
+			error: function(){
+				alert("Cannot connect to the server");
+			}
+		
+		});
+	} else {
+		var sessionServerAdmin = sessionStorage.getItem("ase.serveradmin");
+		param = "sessionServerAdmin="+sessionServerAdmin+"&raspberryStatus=1";	
+		$.ajax({
+	        type: "GET",
+	        url: "http://" + domainText + "/ase_server/raspberrycontrol/load_AllDisplayList.do?"+param,
+	        callback:"callbak",
+			dataType: "jsonp",
+			timeout : 4000,
+			success:
+				function(data){
+	        	$.each(data, function(k,v){
+	            	if(k=="success"){
+	               		var html = '';
+	               		html += '<tr>';
+	            		html += '<td>ID</td>';
+	            		html += '<td>Sensor Type</td>';
+	            		html += '<td>Value</td>';
+	            		html += '</tr>';
+	               		$.each(v, function(l,m){
+	                		html += '<tr>'
+	                		html +=	'<td>'+m["raspberryID"]+'</td>';
+	                		html +=	'<td>'+m["saType"]+'</td>';
+	                		html += '<td>'+m["saUpdateValue"]+'</td>';
+	                		html += '</tr>';
+	            		});
+	            		$("#homeStatus").append(html);
+	            	}
+
+	            	if(k=="fail"){
+	            		html = '<tr>';
+	            		html += '<td> There is no Sensor Information in your SMART AL</td>';
+	            		html += '</tr>';
+	            		$("#homeStatus").append(html);
+	            	}
+	        	});
+	        },
+	        
+	        //404에러와 같이 서버응담이 없는경우 실패 alert만 생성하고 현재 페이지에 위치함
+	        error: function(){
+	        	alert("Cannot connect to the server");
+	        }
+	    });
+		
+	}
+	
+	
+}
+
+
 
 // 11.6. - 봉재 - 아직 완료되지 않은 Post들을 가져오는것 여기에는 리스트의 개수제한이 없음
 function Unfinished_post_list_load(){

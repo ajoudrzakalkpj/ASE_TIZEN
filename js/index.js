@@ -8,7 +8,15 @@ function previousPage()
 }
 
 function get_initial_info(){
+	//tizen.systeminfo.getPropertyValue("BUILD", SuccessCallback, ErrorCallback);
 	tizen.systeminfo.getPropertyValue("WIFI_NETWORK", onSuccessCallback, onErrorCallback);
+
+	if (localStorage.getItem("cipher1") != null){
+		$("#tbLoginId").val(getDecryption(localStorage.getItem("cipher2")));
+		$("#tbLoginPassword").val(getDecryption(localStorage.getItem("cipher3")));
+		$("#cbRememberMe").attr("checked", true);
+	}
+
 	
 }
 
@@ -168,6 +176,7 @@ function registerComplete(){
 
 function login(userId, passwd){
 
+	
 	var params = "userID="+userId+"&userPassword="+passwd+ "&userSSID=" + wifissid;
 	$.ajax({
         type: "POST",
@@ -181,12 +190,22 @@ function login(userId, passwd){
         }, 
 		success: function(data){
         	$.each(data, function(k,v){
-        		console.log(data)
+        		
             	if(k=="success"){
             		sessionStorage.setItem("ase.id", v["userID"]);
 					sessionStorage.setItem("ase.seq", v["userSeq"]);
 					sessionStorage.setItem("ase.ssid", v["userSSID"]);
 					sessionStorage.setItem("ase.serveradmin", v["userServerAdmin"]);
+					
+					if($('input:checkbox[name=RememberMe]').is(':checked')){
+						localStorage.setItem("cipher1", $('input:checkbox[name=RememberMe]').is(':checked'));
+						localStorage.setItem("cipher2", getEncryption(userId));
+						localStorage.setItem("cipher3", getEncryption(passwd));
+					}else{
+						localStorage.removeItem("cipher1");
+						localStorage.removeItem("cipher2");
+						localStorage.removeItem("cipher3");
+					}
             		location.href="./src/welcome.html";
             	}
             	
@@ -224,6 +243,7 @@ function check()
 		
 		return false;
 	}
+	
 
 	login(id, passwd);
 	

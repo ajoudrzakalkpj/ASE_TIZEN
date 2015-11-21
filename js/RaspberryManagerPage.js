@@ -32,9 +32,9 @@ function get_raspberry_manager_info()
             		html += '</tr>';
                		$.each(v, function(l,m){
                 		html += '<tr>'
-                		html += '<td>' + m["raspberryID"] + '</td>';
-                		html += '<td>' + m["raspberryNumSN"] + '</td>';
-                		html += '<td>' + m["raspberryIPAddr"] + '</td>';
+                		html += '<td width="120" onclick="MoveRaspberryInfoCheck('+m["raspberryNumSeq"]+')">'+m["raspberryID"]+'</td>';
+                		html += '<td width="120" onclick="MoveRaspberryInfoCheck('+m["raspberryNumSeq"]+')">' + m["raspberryNumSN"] + '</td>';
+                		html += '<td width="120" onclick="MoveRaspberryInfoCheck('+m["raspberryNumSeq"]+')">' + m["raspberryIPAddr"] + '</td>';
                 		html += '</tr>';
             		});
             		$("#Raspberrystatusdisplay").append(html);
@@ -56,4 +56,8 @@ function get_raspberry_manager_info()
     });
 }
 
+
+function MoveRaspberryInfoCheck(seq){
+	location.href="./RaspberryInfoCheck.html?seq="+seq;
+}
 
